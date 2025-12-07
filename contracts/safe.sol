@@ -77,7 +77,8 @@ contract kipuSafe is Pausable, AccessControl {
     function getTOKEN2USD(address token, uint256 amount) public view returns (uint256){
         uint8 tokenDecimals = IERC20Metadata(token).decimals();
         uint8 datafeedDecimals = getDecimalsFeed();
-        //Change chain link by another datafeed
+        // Change chain link by another datafeed
+        // But my own token dont have this oracle in chain link
         uint256 Token2Usd = uint256(getChainlinkETH2USD());
         uint256 amountUsd = (amount * Token2Usd)/(10**(datafeedDecimals+tokenDecimals-6));
         return amountUsd;
@@ -150,7 +151,7 @@ contract kipuSafe is Pausable, AccessControl {
         emit Deposited(msg.sender, msg.value);
     }
     // Funtion to deposit ether into the contract
-    function depositFundsNative() external payable noReentracy(){
+    function depositNative() external payable noReentracy(){
         //Check
         if (msg.value == 0) revert ZeroAmount();
         if (bankCap > BANK_CAP_LIMIT) revert MaxDepositedReached();
@@ -173,7 +174,7 @@ contract kipuSafe is Pausable, AccessControl {
     }
 
     // Function for withdraw ether from proprietary
-    function withDrawFundsNative(uint256 amount) external noReentracy{
+    function withDrawNative(uint256 amount) external noReentracy{
         //Check
         if (amount == 0) revert ZeroAmount();
         if (amount > limitCash) revert NotAllowedLimitCash();
