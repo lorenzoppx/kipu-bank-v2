@@ -1,14 +1,16 @@
 # kipu-bank-v2
-O smart contract *kipuSafeV2* foi deployado na rede de teste *SepoliaETH* no seguinte endereço:
+O smart contract *kipuSafeV2* foi deployado na rede de teste *SepoliaETH* via foundry no seguinte endereço:
 ```
-0x154628D130166B9562f22826b6B61BdE6A98f894
+0x6b522d43d165a4383bd0f2f61ac87de4bf29df42
 ```
 Pode ser consultado no explorador de blocos *EtherScan*:
 ```
-https://sepolia.etherscan.io/address/0x154628D130166B9562f22826b6B61BdE6A98f894
+https://sepolia.etherscan.io/address/0x6b522d43d165a4383bd0f2f61ac87de4bf29df42
 ```
-
-
+Contrato deployado via:
+```
+forge create --rpc-url $ALCHEMY_SEPOLIA_RPC --private-key $PRIVATE_KEY --verify --etherscan-api-key $ETHSCAN_KEY --broadcast script/safe.sol:kipuSafe --constructor-args <<arg1-address-admin>>  <<arg2-address-pauser>>
+```
 # Controle de Acesso
 
 Esse contrato possui controle de acesso via contratos da OpenZeppelin segundo *Pausable e AcessControl*, cujos papéis são definidos no ato de *deploy* do *smart contract*.
