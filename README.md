@@ -1,11 +1,11 @@
 # kipu-bank-v2
 O smart contract *kipuSafeV2* foi deployado na rede de teste *SepoliaETH* no seguinte endereço:
 ```
-0x3c9eA9e8066d630438516541640A711cC546eb00
+0x154628D130166B9562f22826b6B61BdE6A98f894
 ```
 Pode ser consultado no explorador de blocos *EtherScan*:
 ```
-https://sepolia.etherscan.io/address/0x3c9eA9e8066d630438516541640A711cC546eb00#code
+https://sepolia.etherscan.io/address/0x154628D130166B9562f22826b6B61BdE6A98f894
 ```
 
 
